@@ -2,8 +2,8 @@ import React from "react";
 
 interface PrimaryButtonProps {
   label: string;
-  paddingY?: string;
   paddingX?: string;
+  paddingY?: string;
   background?: string;
   textColor?: string;
   width?: string;
@@ -12,18 +12,17 @@ interface PrimaryButtonProps {
 
 const PrimaryButton = ({
   label,
-  paddingY = "py-4",
-  paddingX = "px-16",
-  background = "bg-[#D38669]",
-  textColor = "text-white",
-  width = "w-auto",
+  paddingX = "16",
+  paddingY = "4",
+  background = "[#D38669]",
+  textColor = "white",
+  width = "auto",
   onClick = () => {},
 }: PrimaryButtonProps) => {
   return (
     <button
       className={`
-      transform rounded-xl text-lg font-medium transition duration-300 hover:scale-105 hover:opacity-90
-      ${paddingX} ${paddingY} ${background} ${textColor} ${width}
+      transform rounded-xl text-lg font-medium transition duration-300 hover:scale-105 hover:opacity-90 px-${paddingX} py-${paddingY} bg-${background} text-${textColor} w-${width}
       `}
       onClick={onClick}
     >

@@ -5,7 +5,7 @@ import { RegularText, ExtraLargeText, PrimaryButton, OutlineButton } from "../";
 
 const Footer = () => {
   return (
-    <footer className="relative mx-20 h-[612px] max-w-[1480px] rounded-3xl 2xl:mx-auto">
+    <footer className="relative mx-20 mb-[120px] h-[612px] max-w-[1480px] rounded-3xl 2xl:mx-auto">
       <div className="relative h-[612px] w-full rounded-3xl">
         <Image
           src="/images/footer-bg.jpeg"

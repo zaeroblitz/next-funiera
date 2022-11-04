@@ -13,17 +13,17 @@ interface OutlineButtonProps {
 const OutlineButton = ({
   label,
   background = "white",
-  paddingX = "px-12",
-  paddingY = "py-4",
-  borderColor = "border-[#D38669]",
-  textColor = "text-[#D38669]",
+  paddingX = "12",
+  paddingY = "4",
+  borderColor = "[#D38669]",
+  textColor = "[#D38669]",
   onClick = () => {},
 }: OutlineButtonProps) => {
   return (
     <button
       className={`
     rounded-xl border text-lg font-medium transition duration-300 hover:scale-105 hover:opacity-90
-    ${paddingX} ${paddingY} ${borderColor} ${textColor} bg-${background}
+    px-${paddingX} py-${paddingY} border-${borderColor} text-${textColor} bg-${background}
     `}
       onClick={onClick}
     >
