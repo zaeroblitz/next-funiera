@@ -29,7 +29,7 @@ const Home = () => {
         <section className="mt-20 ml-20 flex max-w-[1480px] items-center justify-between overflow-hidden 2xl:mx-auto">
           {/* Left */}
           <div className="ml-5 flex flex-col">
-            <RegularText weight="medium" textColor="[#D38669]">
+            <RegularText weight="font-medium" textColor="text-[#D38669]">
               Low Price, Good Quality
             </RegularText>
             <ExtraLargeText>
@@ -40,7 +40,7 @@ const Home = () => {
               <span className="block leading-[68px]">And More Comfortable</span>
             </ExtraLargeText>
             <RegularText
-              textColor="[#777777]"
+              textColor="text-[#777777]"
               additonStyles="mt-5 max-w-[500px] leading-[180%]"
             >
               Looking for quality design furniture? then your choice is right
@@ -81,8 +81,8 @@ const Home = () => {
         <section className="my-[120px] mx-20 flex max-w-[1480px] flex-col gap-y-14 2xl:mx-auto">
           {/* Heading */}
           <div className="flex items-center justify-between">
-            <SemiboldText textSize="[38px]">Our Collections</SemiboldText>
-            <OutlineButton label="View All" paddingX="8" paddingY="4" />
+            <SemiboldText textSize="text-[38px]">Our Collections</SemiboldText>
+            <OutlineButton label="View All" paddingX="px-8" paddingY="py-4" />
           </div>
 
           {/* Collections */}
@@ -127,15 +127,15 @@ const Home = () => {
             {/* Heading */}
             <div className="mb-14">
               <RegularText
-                weight="medium"
-                textColor="[#D38669]"
+                weight="font-medium"
+                textColor="text-[#D38669]"
                 additonStyles="mb-1"
               >
                 Low Price, Good Quality
               </RegularText>
               <ExtraLargeText>Easy Custom Furniture</ExtraLargeText>
               <RegularText
-                textColor="[#777777]"
+                textColor="text-[#777777]"
                 additonStyles="mt-5 leading=[180%]"
               >
                 Can&apos;t find what you want in terms of color or size of the
@@ -151,7 +151,7 @@ const Home = () => {
                   <BoltSlashIcon className="h-8 w-8 text-[#D38669]" />
                 </div>
                 <SemiboldText>No Extra Cost</SemiboldText>
-                <RegularText textColor="[#777777]" additonStyles="mt-2">
+                <RegularText textColor="text-[#777777]" additonStyles="mt-2">
                   Lorem Ipsum is simply dummy text of the printing and
                   typesetting industry.
                 </RegularText>
@@ -162,14 +162,14 @@ const Home = () => {
                   <SquaresPlusIcon className="h-8 w-8 text-[#D38669]" />
                 </div>
                 <SemiboldText>Custom As You Wish</SemiboldText>
-                <RegularText textColor="[#777777]" additonStyles="mt-2">
+                <RegularText textColor="text-[#777777]" additonStyles="mt-2">
                   Lorem Ipsum is simply dummy text of the printing and
                   typesetting industry.
                 </RegularText>
               </div>
             </div>
 
-            <PrimaryButton label="Order Custom" width="fit" />
+            <PrimaryButton label="Order Custom" width="w-fit" />
           </div>
         </section>
 
@@ -178,8 +178,10 @@ const Home = () => {
           <div className="mx-auto flex max-w-[1480px] flex-col items-center px-20 py-20 2xl:px-32">
             {/* Heading */}
             <div className="flex flex-col items-center justify-center gap-y-4 text-center">
-              <SemiboldText textColor="[#D38669]">Happy Customers</SemiboldText>
-              <ExtraLargeText textColor="white" leading="[68px]">
+              <SemiboldText textColor="text-[#D38669]">
+                Happy Customers
+              </SemiboldText>
+              <ExtraLargeText textColor="text-white" leading="leading-[68px]">
                 <span className="block">How Happy They Are</span>
                 <span className="block">With Our service</span>
               </ExtraLargeText>
@@ -228,7 +230,7 @@ const Home = () => {
               </div>
             </div>
 
-            <PrimaryButton label="View All" paddingX="8" width="fit" />
+            <PrimaryButton label="View All" paddingX="px-8" width="w-fit" />
           </div>
         </section>
       </main>

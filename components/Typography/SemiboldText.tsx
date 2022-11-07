@@ -8,15 +8,13 @@ interface SemiboldTextProps {
 }
 
 const SemiboldText = ({
-  textSize = "lg",
-  textColor = "[#171727]",
+  textSize = "text-lg",
+  textColor = "text-[#171727]",
   additonStyles = "",
   children,
 }: SemiboldTextProps) => {
   return (
-    <p
-      className={`font-semibold text-${textSize} text-${textColor} ${additonStyles}`}
-    >
+    <p className={`font-semibold ${textSize} ${textColor} ${additonStyles}`}>
       {children}
     </p>
   );

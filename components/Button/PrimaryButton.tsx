@@ -12,17 +12,17 @@ interface PrimaryButtonProps {
 
 const PrimaryButton = ({
   label,
-  paddingX = "16",
-  paddingY = "4",
-  background = "[#D38669]",
-  textColor = "white",
-  width = "auto",
+  paddingX = "px-16",
+  paddingY = "py-4",
+  background = "bg-[#D38669]",
+  textColor = "text-white",
+  width = "w-auto",
   onClick = () => {},
 }: PrimaryButtonProps) => {
   return (
     <button
       className={`
-      transform rounded-xl text-lg font-medium transition duration-300 hover:scale-105 hover:opacity-90 px-${paddingX} py-${paddingY} bg-${background} text-${textColor} w-${width}
+      transform rounded-xl text-lg font-medium transition duration-300 hover:scale-105 hover:opacity-90 ${paddingX} ${paddingY} ${background} ${textColor} ${width}
       `}
       onClick={onClick}
     >

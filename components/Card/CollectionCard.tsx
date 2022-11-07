@@ -18,7 +18,7 @@ const CollectionCard = ({
   return (
     <div
       className="group relative h-[350px] cursor-pointer overflow-hidden rounded-xl transition duration-300 ease-out"
-      onClick={() => {}}
+      onClick={onClick}
     >
       {/* Image */}
       <div className="relative h-[350px] w-auto rounded-xl">
@@ -32,10 +32,10 @@ const CollectionCard = ({
 
       {/* Content */}
       <div className="absolute bottom-4 left-1/2 w-[90%] -translate-x-1/2 rounded-xl bg-black/30 py-2 px-4 backdrop-blur-lg">
-        <SemiboldText textSize="[20px]" textColor="white">
+        <SemiboldText textSize="text-[20px]" textColor="text-white">
           {title}
         </SemiboldText>
-        <RegularText textColor="white" weight="light">
+        <RegularText textColor="text-white" weight="font-light">
           {category}
         </RegularText>
       </div>

@@ -9,16 +9,14 @@ interface RegularTextProps {
 }
 
 const RegularText = ({
-  weight = "normal",
-  size = "base",
-  textColor = "[#171727]",
+  weight = "font-normal",
+  size = "text-base",
+  textColor = "text-[#171727]",
   additonStyles = "",
   children,
 }: RegularTextProps) => {
   return (
-    <p
-      className={`text-lg font-${weight} text-${size} text-${textColor} ${additonStyles}`}
-    >
+    <p className={`${weight} ${size} ${textColor} ${additonStyles}`}>
       {children}
     </p>
   );

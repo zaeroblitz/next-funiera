@@ -21,14 +21,14 @@ const Footer = () => {
       {/* Context */}
       <div className="absolute inset-0 top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2 text-center ">
         <RegularText
-          weight="medium"
-          size="lg"
-          textColor="[#D38669]"
+          weight="font-medium"
+          size="text-lg"
+          textColor="text-[#D38669]"
           additonStyles="mb-[10px] capitalize"
         >
           why should the service be us?
         </RegularText>
-        <ExtraLargeText textColor="white">
+        <ExtraLargeText textColor="text-white">
           <span className="block capitalize leading-[56px]">
             build your home with a comfortable
           </span>
@@ -37,9 +37,9 @@ const Footer = () => {
           </span>
         </ExtraLargeText>
         <RegularText
-          size="lg"
-          textColor="white"
-          weight="light"
+          size="text-lg"
+          textColor="text-white"
+          weight="font-light"
           additonStyles="mt-5"
         >
           <span className="block">
@@ -53,7 +53,7 @@ const Footer = () => {
         </RegularText>
         <div className="mt-14 flex items-center justify-center gap-x-[30px]">
           <PrimaryButton label="Shop Now" />
-          <OutlineButton label="Order Custom" background="transparent" />
+          <OutlineButton label="Order Custom" background="bg-transparent" />
         </div>
       </div>
     </footer>

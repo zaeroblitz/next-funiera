@@ -5,19 +5,21 @@ interface ExtraLargeTextProps {
   weight?: string;
   textColor?: string;
   leading?: string;
+  additionStyles?: string;
   children: React.ReactNode;
 }
 
 const ExtraLargeText = ({
-  size = "5xl",
-  weight = "bold",
-  textColor = "[#171727]",
-  leading = "normal",
+  size = "text-5xl",
+  weight = "font-bold",
+  textColor = "text-[#171727]",
+  leading = "leading-normal",
+  additionStyles = "",
   children,
 }: ExtraLargeTextProps) => {
   return (
     <h2
-      className={`text-${size} text-${textColor} font-${weight} leading-${leading}`}
+      className={`${size} ${textColor} ${weight} ${leading} ${additionStyles}`}
     >
       {children}
     </h2>

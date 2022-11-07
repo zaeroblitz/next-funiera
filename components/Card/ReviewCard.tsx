@@ -25,14 +25,14 @@ const ReviewCard = ({ pictUrl, name, status, message }: ReviewCardProps) => {
         </div>
 
         <div className="flex flex-col gap-y-[2px]">
-          <SemiboldText textSize="normal">{name}</SemiboldText>
-          <RegularText weight="medium" textColor="[#777777]">
+          <SemiboldText textSize="text-normal">{name}</SemiboldText>
+          <RegularText weight="font-medium" textColor="text-[#777777]">
             {status}
           </RegularText>
         </div>
       </div>
 
-      <RegularText textColor="[#777777]" additonStyles="mt-6">
+      <RegularText textColor="text-[#777777]" additonStyles="mt-6">
         {message}
       </RegularText>
     </div>
