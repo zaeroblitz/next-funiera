@@ -9,3 +9,4 @@ export { default as ReviewCard } from "./Card/ReviewCard";
 export { default as Footer } from "./Footer/Footer";
 export { default as ProductCard } from "./Card/ProductCard";
 export { default as Gallery } from "./Gallery/Gallery";
+export { default as Cart } from "./Cart/Cart";

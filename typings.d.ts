@@ -39,3 +39,12 @@ interface Category {
   type: CategoryType[];
   thubnail: Image;
 }
+
+interface CartItemProps {
+  product: Product;
+  qty: number;
+}
+
+interface CartProps {
+  items: CartItemProps[];
+}

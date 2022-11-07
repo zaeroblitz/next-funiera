@@ -6,12 +6,22 @@ import {
 } from "@heroicons/react/24/solid";
 
 import NavLink from "./NavLink";
+import { useAppDispatch, useAppSelector } from "../../lib/hooks";
+import { selectCartItems } from "../../redux/slices/cartSlice";
+import { Cart } from "../";
+import {
+  cartDisplayStatus,
+  turnOnCartDisplay,
+} from "../../redux/slices/cartDisplaySlice";
 
 const Navbar = () => {
   const { pathname } = useRouter();
+  const dispatch = useAppDispatch();
+  const { items } = useAppSelector(selectCartItems);
+  const { isCartActive } = useAppSelector(cartDisplayStatus);
 
   return (
-    <header className="mx-20 grid max-w-[1480px] grid-cols-3 items-center justify-between border-b border-[#E2E2E2] py-8 2xl:mx-auto">
+    <header className="mx-20 grid max-w-[1480px] grid-cols-3 items-center justify-between py-8 2xl:mx-auto">
       {/* Links */}
       <nav>
         <ul className="flex items-center gap-x-10">
@@ -46,10 +56,21 @@ const Navbar = () => {
         </div>
 
         {/* Cart */}
-        <div className="rounded-xl bg-[#D38669]/10 p-3">
+        <div
+          onClick={() => dispatch(turnOnCartDisplay())}
+          className="relative transform cursor-pointer rounded-xl bg-[#D38669]/10 p-3 transition duration-200 hover:scale-105 hover:shadow-md"
+        >
           <ShoppingCartIcon className="h-6 w-6 text-[#D38669]" />
+
+          {items.length > 0 && (
+            <div className="absolute -top-3 -right-3 flex h-6 w-6 items-center justify-center rounded-full bg-emerald-500 text-white">
+              {items.length}
+            </div>
+          )}
         </div>
       </div>
+
+      {isCartActive && <Cart items={items} />}
     </header>
   );
 };
