@@ -13,6 +13,8 @@
     "@reduxjs/toolkit": "^1.9.0",
     "@sanity/client": "^3.4.1",
     "@sanity/image-url": "^1.0.1",
+    "@stripe/react-stripe-js": "^1.14.2",
+    "@stripe/stripe-js": "^1.42.1",
     "@types/node": "18.11.9",
     "@types/react": "18.0.24",
     "@types/react-dom": "18.0.8",
@@ -22,6 +24,7 @@
     "react-dom": "18.2.0",
     "react-hot-toast": "^2.4.0",
     "react-redux": "^8.0.5",
+    "stripe": "^10.16.0",
     "tailwind-scrollbar": "^2.0.1",
     "typescript": "4.8.4"
   },

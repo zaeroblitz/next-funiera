@@ -1,20 +1,24 @@
 import React from "react";
 import Image from "next/image";
+import toast from "react-hot-toast";
+import Stripe from "stripe";
+
 import {
   ChevronDownIcon,
   ChevronUpIcon,
   TrashIcon,
 } from "@heroicons/react/24/solid";
-import toast from "react-hot-toast";
 
-import { SemiboldText, RegularText, PrimaryButton } from "..";
 import { useAppDispatch } from "../../lib/hooks";
+import { fetchPostJSON } from "../../utils/api-helper";
 import {
   decCartItemQty,
   incCartItemQty,
   removeFromCart,
 } from "../../redux/slices/cartSlice";
 import { turnOffCartDisplay } from "../../redux/slices/cartDisplaySlice";
+import { SemiboldText, RegularText, PrimaryButton } from "..";
+import getStripe from "../../utils/get-stripe";
 
 const Cart = ({ items }: CartProps) => {
   const dispatch = useAppDispatch();
@@ -122,6 +126,24 @@ const Cart = ({ items }: CartProps) => {
               paddingY="py-2"
               width="w-full"
               background="bg-emerald-500"
+              onClick={async () => {
+                const checkoutSession: Stripe.Checkout.Session =
+                  await fetchPostJSON("/api/stripe", { items });
+
+                //* If Internal Server Error (500)
+                if ((checkoutSession as any).statusCode === 500) {
+                  console.error((checkoutSession as any).message);
+                  return;
+                }
+
+                //* Redirect to Checkout
+                const stripe = await getStripe();
+                const { error } = await stripe!.redirectToCheckout({
+                  sessionId: checkoutSession.id,
+                });
+
+                console.warn(error.message);
+              }}
             />
           </div>
         </div>
