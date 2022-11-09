@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@badrap/bar-of-progress": "^0.2.2",
     "@heroicons/react": "^2.0.13",
     "@reduxjs/toolkit": "^1.9.0",
     "@sanity/client": "^3.4.1",
@@ -19,6 +20,8 @@
     "@types/react": "18.0.24",
     "@types/react-dom": "18.0.8",
     "next": "13.0.1",
+    "next-auth": "^4.16.4",
+    "next-auth-sanity": "^1.4.4",
     "next-sanity": "^1.0.8",
     "react": "18.2.0",
     "react-dom": "18.2.0",

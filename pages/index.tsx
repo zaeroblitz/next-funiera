@@ -5,14 +5,12 @@ import { BoltSlashIcon, SquaresPlusIcon } from "@heroicons/react/24/solid";
 
 import {
   ExtraLargeText,
-  Navbar,
   OutlineButton,
   PrimaryButton,
   RegularText,
   SemiboldText,
   CollectionCard,
   ReviewCard,
-  Footer,
 } from "../components";
 
 const Home = () => {
@@ -61,6 +59,7 @@ const Home = () => {
                 src="/images/hero1.png"
                 alt="Hero Image 1"
                 fill
+                priority
                 className="object-contain"
               />
             </div>

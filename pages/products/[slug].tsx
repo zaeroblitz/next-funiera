@@ -6,6 +6,10 @@ import toast from "react-hot-toast";
 import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/24/solid";
 
 import { fetchProduct } from "../../utils/fetchProduct";
+import { addToCart } from "../../redux/slices/cartSlice";
+import { useAppSelector, useAppDispatch } from "../../lib/hooks";
+import { decQty, incQty, selectQty } from "../../redux/slices/qtySlice";
+import { turnOnCartDisplay } from "../../redux/slices/cartDisplaySlice";
 import {
   ExtraLargeText,
   Gallery,
@@ -14,9 +18,6 @@ import {
   RegularText,
   SemiboldText,
 } from "../../components";
-import { useAppSelector, useAppDispatch } from "../../lib/hooks";
-import { addToCart } from "../../redux/slices/cartSlice";
-import { decQty, incQty, selectQty } from "../../redux/slices/qtySlice";
 
 interface Props {
   product: Product;
@@ -129,7 +130,14 @@ const ProductDetails = ({ product }: Props) => {
             {/* Buttons */}
             <div className="mt-10 flex items-center gap-x-10">
               <PrimaryButton label="Add to Cart" onClick={handleAddToCart} />
-              <OutlineButton label="Buy Now" background="bg-transparent" />
+              <OutlineButton
+                label="Buy Now"
+                background="bg-transparent"
+                onClick={() => {
+                  handleAddToCart();
+                  dispatch(turnOnCartDisplay());
+                }}
+              />
             </div>
           </div>
         </section>

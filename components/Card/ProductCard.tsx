@@ -36,7 +36,11 @@ const ProductCard = ({ slug, imageUrl, title, price }: ProductCardProps) => {
       <SemiboldText textSize="text-[20px]" additonStyles="mt-3">
         {title}
       </SemiboldText>
-      <SemiboldText textSize="text-[20px]" additonStyles="mt-3">
+      <SemiboldText
+        textColor="text-emerald-500"
+        textSize="text-[20px]"
+        additonStyles="mt-3"
+      >
         ${price}
       </SemiboldText>
     </div>
