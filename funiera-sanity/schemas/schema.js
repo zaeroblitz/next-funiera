@@ -4,9 +4,9 @@ import { user, account } from "next-auth-sanity/schemas";
 
 import Product from "./Product";
 import Category from "./Category";
-import CategoryType from "./CategoryType";
+import Room from "./Room";
 
 export default createSchema({
   name: "default",
-  types: schemaTypes.concat([Product, Category, CategoryType, user, account]),
+  types: schemaTypes.concat([Product, Room, Category, user, account]),
 });

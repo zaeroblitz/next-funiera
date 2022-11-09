@@ -12,13 +12,18 @@ interface Slug {
   current: string;
 }
 
-interface CategoryType {
-  name: string;
-}
-
-interface ProductCategory {
+interface Category {
   _id: string;
   title: string;
+  slug: Slug;
+  thumbnail: Image;
+}
+
+interface Room {
+  _id: string;
+  title: string;
+  slug: string;
+  thumbnail: Image;
 }
 
 interface Product {
@@ -29,15 +34,14 @@ interface Product {
   price: number;
   stock: number;
   description: string;
-  categories: ProductCategory[];
+  room: Room;
+  category: Category;
 }
 
-interface Category {
+interface ProductTagProps {
   _id: string;
   title: string;
   slug: string;
-  type: CategoryType[];
-  thubnail: Image;
 }
 
 interface CartItemProps {

@@ -91,7 +91,7 @@ const Navbar = () => {
         ) : (
           <div
             onClick={() => setShowSignOutButton(!showSignOutButton)}
-            className="relative flex w-[100px] cursor-pointer items-center gap-x-1 rounded-xl"
+            className="relative flex cursor-pointer items-center gap-x-1 rounded-xl"
           >
             <Image
               src={

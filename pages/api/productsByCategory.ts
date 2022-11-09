@@ -10,21 +10,23 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  const { slug } = req.query;
+  const { category } = req.query;
 
   const query = groq`
-    *[_type == "product" && slug.current == '${slug}'] {
-        _id, 
-        name,
-        slug, 
-        images,
-        price,
-        stock,
-        description,
-        room->{_id, title},
-        category->{_id, title},
-    }
+  *[_type == "product" && category->slug.current == '${category}'] {
+    _id, 
+    name,
+    slug, 
+    images,
+    price,
+    stock,
+    description,
+    room->{_id, title},
+    category->{_id, title},
+  }
 `;
+
+  console.log(query);
 
   const products: Product[] = await client.fetch(query);
   res.status(200).json({ products });

@@ -42,15 +42,21 @@ export default {
       type: "text",
     },
     {
-      name: "categories",
-      title: "Categories",
-      type: "array",
-      of: [
-        {
-          type: "reference",
-          to: [{ type: "category" }],
-        },
-      ],
+      name: "details",
+      title: "Details",
+      type: "text",
+    },
+    {
+      name: "room",
+      title: "Room",
+      type: "reference",
+      to: { type: "room" },
+    },
+    {
+      name: "category",
+      title: "Category",
+      type: "reference",
+      to: { type: "category" },
     },
   ],
 };

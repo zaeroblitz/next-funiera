@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-import Head from "next/head";
 import type { GetServerSideProps } from "next";
+import React from "react";
+import Head from "next/head";
+import { useRouter } from "next/router";
 
 import {
   ExtraLargeText,
@@ -9,8 +10,10 @@ import {
   ProductCard,
   SemiboldText,
 } from "../../components";
-import { urlFor } from "../../lib/client";
-import { fetchProducts } from "../../utils/fetchProducts";
+import {
+  fetchProducts,
+  fetchProductsByCategory,
+} from "../../utils/fetchProducts";
 import { fetchCategories } from "../../utils/fetchCategories";
 
 interface Props {
@@ -19,56 +22,8 @@ interface Props {
 }
 
 const Products = ({ products, categories }: Props) => {
-  const dummyCategories = [
-    "All Furniture",
-    "Chairs",
-    "Tables",
-    "Sofas",
-    "Cupboard",
-  ];
-  const dummyProducts = [
-    {
-      imageUrl: "/images/product1.png",
-      title: "Smastad Cupboard",
-      price: "Rp 1.229.500",
-    },
-    {
-      imageUrl: "/images/product2.png",
-      title: "Millberget Chair",
-      price: "Rp 1.599.000",
-    },
-    {
-      imageUrl: "/images/product3.png",
-      title: "Landskrona Sofa",
-      price: "Rp 3.495.000",
-    },
-    {
-      imageUrl: "/images/product4.png",
-      title: "Raskog troly",
-      price: "Rp 229.000",
-    },
-    {
-      imageUrl: "/images/product5.png",
-      title: "Hemlingby Sofa",
-      price: "Rp 1.229.500",
-    },
-    {
-      imageUrl: "/images/product6.png",
-      title: "Tommyard Table",
-      price: "Rp 2.559.150",
-    },
-    {
-      imageUrl: "/images/product7.png",
-      title: "Sakarias Sofa",
-      price: "Rp 1.895.000",
-    },
-    {
-      imageUrl: "/images/product8.png",
-      title: "Raskog Chair",
-      price: "Rp 395.000",
-    },
-  ];
-  const [categoriesActive, setCategoriesActive] = useState("All Furniture");
+  const router = useRouter();
+  const categoryQuery = router.query.category;
 
   return (
     <div className="bg-[#FAFAFA]">
@@ -102,23 +57,37 @@ const Products = ({ products, categories }: Props) => {
 
             {/* Categories */}
             <div className="col-span-8 justify-self-center">
-              {dummyCategories.map((category) => (
+              <PrimaryButton
+                label={"All Furniture"}
+                width="fit"
+                paddingX="px-[24px]"
+                paddingY="py-[14px]"
+                textColor={categoryQuery ? "text-[#171627]]" : "text-white"}
+                background={categoryQuery ? "bg-transparent" : "bg-[#D38669]"}
+                onClick={() => {
+                  router.push("/products");
+                }}
+              />
+              {categories.map((category) => (
                 <PrimaryButton
-                  key={category}
-                  label={category}
+                  key={category._id}
+                  label={category.title}
                   width="fit"
                   paddingX="px-[24px]"
                   paddingY="py-[14px]"
                   textColor={
-                    categoriesActive !== category
+                    categoryQuery !== category.slug.current
                       ? "text-[#171627]]"
                       : "text-white"
                   }
                   background={
-                    categoriesActive !== category
+                    categoryQuery !== category.slug.current
                       ? "bg-transparent"
                       : "bg-[#D38669]"
                   }
+                  onClick={() => {
+                    router.push(`/products?category=${category.slug.current}`);
+                  }}
                 />
               ))}
             </div>
@@ -153,8 +122,18 @@ const Products = ({ products, categories }: Props) => {
 
 export default Products;
 
-export const getServerSideProps: GetServerSideProps<Props> = async () => {
-  const products = await fetchProducts();
+export const getServerSideProps: GetServerSideProps<Props> = async (
+  context
+) => {
+  let products: Product[];
+  const { category } = context.query;
+
+  if (category) {
+    products = await fetchProductsByCategory(`${category}`);
+  } else {
+    products = await fetchProducts();
+  }
+
   const categories = await fetchCategories();
 
   return {

@@ -15,6 +15,7 @@ import {
   Gallery,
   OutlineButton,
   PrimaryButton,
+  ProductTag,
   RegularText,
   SemiboldText,
 } from "../../components";
@@ -69,14 +70,8 @@ const ProductDetails = ({ product }: Props) => {
 
             {/* Product Tags */}
             <div className="my-3 flex flex-wrap gap-x-3">
-              {product.categories.map((category) => (
-                <div
-                  key={category._id}
-                  className="transform cursor-pointer rounded-xl bg-slate-200 px-4 py-3 text-slate-500 transition duration-300 hover:scale-105"
-                >
-                  {category.title}
-                </div>
-              ))}
+              <ProductTag title={product.room.title} />
+              <ProductTag title={product.category.title} />
             </div>
 
             {/* Product Description */}
